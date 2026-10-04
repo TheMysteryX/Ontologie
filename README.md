@@ -24,43 +24,8 @@ Proiect educațional care demonstrează principiile Programării Orientate pe Ob
 
 ## Structura ierarhiei
 
-```mermaid
-classDiagram
-    Vehicul <|-- Masina
-    Vehicul <|-- Avion
-    Vehicul <|-- Bicicleta
-    Vehicul <|-- Barca
+<img width="1903" height="1021" alt="image" src="https://github.com/user-attachments/assets/dbb980ad-fe6c-4e0e-b920-2f02a716cd87" />
 
-    Masina <|-- MasinaElectrica
-    Masina <|-- MasinaCombustibil
-    MasinaElectrica <|-- MasinaHybrid
-    MasinaCombustibil <|-- MasinaHybrid
-
-    Avion <|-- AvionPrivat
-    Avion <|-- AvionMarfa
-    AvionPrivat <|-- AvionPasageri
-    AvionMarfa <|-- AvionPasageri
-
-    Bicicleta <|-- MTB
-    Bicicleta <|-- BicicletaElectrica
-    MTB <|-- MTBElectric
-    BicicletaElectrica <|-- MTBElectric
-
-    Barca <|-- Caiac
-    Barca <|-- BarcaPescuit
-```
-
-## Cerințe și rulare
-
-- **Python 3.8+** (se folosesc doar funcții din biblioteca standard, nu există dependențe externe).
-
-```bash
-git clone https://github.com/<utilizator>/<repository>.git
-cd <repository>
-python main.py
-```
-
-> Înlocuiește `main.py` cu numele real al fișierului. La rulare, scriptul creează câte o instanță din fiecare clasă și apelează metodele ei, afișând rezultatele în consolă, secțiune cu secțiune (`----VEHICUL----`, `----MASINA----` etc.).
 
 ## Descrierea claselor
 
@@ -177,18 +142,3 @@ print([c.__name__ for c in MasinaHybrid.__mro__])
 
 Pentru a evita apelarea de două ori a constructorului clasei comune (`Masina`, `Avion`, `Bicicleta`), aceste clase **nu folosesc `super().__init__()`**, ci apelează direct constructorul bazei comune și își inițializează singure atributele specifice.
 
-## Probleme cunoscute și îmbunătățiri
-
-Observații rezultate din analiza codului, utile ca TODO-uri:
-
-- **`MasinaHybrid`: conflict de nume.** `self.autonomie = autonomie` (atribut) *umbrește* metoda `autonomie()` moștenită de la `MasinaCombustibil`; apelul `mh.autonomie()` ar da eroare. Soluție: redenumește atributul (ex. `autonomie_electrica`) sau metoda.
-- **`MasinaCombustibil.poateParcurgeLitrii`:** formula `distanta * consum_mediu` nu împarte la 100 (consumul e în L/100 km). Corect: `distanta * consum_mediu / 100`.
-- **`MasinaCombustibil` – afișarea rezultatului:** linia `print("Poate parcurge 200 km?:"), mc1.poateParcurgeLitrii(200)` creează un tuplu; metoda face deja `print`, deci rezultatul apare în ordine greșită. Metoda ar trebui să returneze `True`/`False`.
-- **`MasinaElectrica.incarcare`:** calculează noua valoare, dar nu actualizează `nivel_baterie`; în plus, returnează `None` când bateria e plină.
-- **`AvionMarfa.incarcaMarfa`:** condiția `<` ar trebui să fie `<=` pentru a permite umplerea exactă până la capacitate.
-- **`AvionPasageri`:** apelurile de la finalul secțiunii folosesc `am1` în loc de `aps`, iar `afisare()` nu include `nr_echipa`.
-- **Variabile suprascrise:** `b1` este folosită atât pentru `Bicicleta`, cât și pentru `Barca`.
-- **Unități inconsistente:** `latime_cauciucuri` este în **mm** în `Bicicleta`, dar în **inch** în `MTB` (`> 2.3`, `>= 2.2`), ceea ce dă rezultate greșite la `tipDrum()` / `tipMTB()`.
-- **Metode care afișează în loc să returneze:** ex. `Vehicul.timpDeplasare()` returnează uneori `None`; e preferabil să returneze valori și să afișeze doar în exterior.
-- **Date de test:** unele dimensiuni (ex. Audi A5 `(1.4, 2.3, 1.2)`) au lungimea mai mică decât lățimea.
-- **Structură:** pentru un proiect mai mare, împarte codul în module (`vehicul.py`, `masini.py`, `avioane.py`, `biciclete.py`, `barci.py`), mută codul de test sub `if __name__ == "__main__":`, folosește `abc.ABC` pentru `Vehicul`, `@property` în loc de metode tip getter/setter și adaugă teste cu `pytest`.
