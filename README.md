@@ -48,7 +48,7 @@ Proiect educațional care demonstrează principiile Programării Orientate pe Ob
 
 ---
 
-### 🚗 Mașini
+###  Mașini
 
 **`Masina(Vehicul)`** – adaugă: `motorizare`, `nr_usi`, `putere` (CP), `transmisie`, `cutie_viteze`, `caroserie`, `volum_portbagaj` (L).
 Metode: `schimbaViteza()`, `tuning()`, `clima()`, `modifCaroserie()`, `schimbaCutia()`, `schimbaTransmisia()`, `performanta()` (clasifică după raportul putere/greutate: sportivă / medie / slabă).
@@ -64,7 +64,7 @@ Metodă proprie: `conduce(distanta)` – încearcă mai întâi parcurgerea în 
 
 ---
 
-### ✈️ Avioane
+### Avioane
 
 **`Avion(Vehicul)`** – adaugă: `tip`, `autonomie`, `capacitate_combustibil`, `nivel_combustibil`, `consum` (L/h), `altitudine` (maximă), `nr_motoare`, `putere` (kN).
 Metode: `schimbaAltitudine()`, `autonomieRamasa()`, `consumRuta()`, `poate_parcurge()`, `alimentare()`.
@@ -77,7 +77,7 @@ Metode: `schimbaAltitudine()`, `autonomieRamasa()`, `consumRuta()`, `poate_parcu
 
 ---
 
-### 🚲 Biciclete
+###  Biciclete
 
 **`Bicicleta(Vehicul)`** – adaugă: `lungime_cadru`, `latime_ghidon`, `transmisie`, `diametru_roti` (inch), `latime_cauciucuri` (mm), `frane`.
 Metode: `timpParcurgere()`, `performanta()` (scor 0–6), `adultCopil()`, `tipDrum()`.
@@ -92,7 +92,7 @@ Metode: `baterieActuala()`, `consum()`, `autonomieRamasa()`, `consumRuta()`.
 
 ---
 
-### ⛵ Bărci
+###  Bărci
 
 **`Barca(Vehicul)`** – adaugă `tip`, `tip_propulsie`, `material`. Metodă: `navigheaza(distanta)`.
 
