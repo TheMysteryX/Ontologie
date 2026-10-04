@@ -5,11 +5,9 @@ Proiect educațional care demonstrează principiile Programării Orientate pe Ob
 
 - [Concepte POO ilustrate](#concepte-poo-ilustrate)
 - [Structura ierarhiei](#structura-ierarhiei)
-- [Cerințe și rulare](#cerințe-și-rulare)
 - [Descrierea claselor](#descrierea-claselor)
 - [Exemple de utilizare](#exemple-de-utilizare)
 - [Moștenirea multiplă și MRO](#moștenirea-multiplă-și-mro)
-- [Probleme cunoscute și îmbunătățiri](#probleme-cunoscute-și-îmbunătățiri)
 
 ## Concepte POO ilustrate
 
